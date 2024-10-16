@@ -7,8 +7,15 @@ uniform vec2 screenSize;
 uniform float gridSpacing;
 uniform vec3 gridColor;
 
-uniform vec2 u_activeCell;
-uniform vec3 u_activeCellColor;
+uniform vec2 u_startCell;
+uniform vec3 u_startCellColor;
+
+uniform vec2 u_endCell;
+uniform vec3 u_endCellColor;
+
+uniform vec2 u_solutionPath[SIZE];
+uniform int u_solutionPathSize;
+uniform vec3 u_solutionPathColor;
 
 uniform vec3 u_obstacleColor;
 uniform vec2 u_obstacles[SIZE];
@@ -29,9 +36,21 @@ void main() {
     }
 
     // change color of the active cell
-    if (gridPos == u_activeCell)
+    if (gridPos == u_startCell)
     {
-        backgroundColor = vec4(u_activeCellColor, 1.0);
+        backgroundColor = vec4(u_startCellColor, 1.0);
+    }
+
+     if (gridPos == u_endCell)
+    {
+        backgroundColor = vec4(u_endCellColor, 1.0);
+    }
+
+    for (int i = 0; i < u_solutionPathSize; i++) {
+        if (gridPos == u_solutionPath[i])
+        {
+            backgroundColor = vec4(u_solutionPathColor, 1.0);
+        }
     }
 
     fragColor = backgroundColor;
