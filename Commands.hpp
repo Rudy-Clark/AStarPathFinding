@@ -9,8 +9,8 @@ class Commands
 
 		void Push(Vector2 coord);
 
-		inline Vector2 GetStart() const { return m_commands[m_SIZE - 1]; };
-		inline Vector2 GetEnd() const { return m_commands[0]; };
+		inline const Vector2& GetStart() const { return GetSize() == 1 ? m_commands[0] : m_commands[m_SIZE - 1]; };
+		inline const Vector2& GetEnd() const { return GetSize() == 1 ? m_commands[m_SIZE - 1] : m_commands[0]; };
 		void ClearCommands();
 		int GetSize() const;
 
