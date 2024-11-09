@@ -3,7 +3,9 @@ A* pathfinding algorithm
 
 ## Controls
 Click with the mouse left button two cells to select `source` and `target`
+
 `F` - Draw path from `source` to `target`
+
 `R` - Redraw collisions
 
 
